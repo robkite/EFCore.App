@@ -14,7 +14,13 @@ namespace EFCore.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Postcode = table.Column<string>(nullable: true)
+                    BuildingName = table.Column<string>(nullable: true),
+                    BuildingNumber = table.Column<string>(nullable: true),
+                    City = table.Column<string>(nullable: true),
+                    Country = table.Column<string>(nullable: true),
+                    County = table.Column<string>(nullable: true),
+                    Postcode = table.Column<string>(nullable: true),
+                    Street = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -26,7 +32,9 @@ namespace EFCore.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    PropertyType = table.Column<int>(nullable: false),
+                    SalesPersonId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -40,7 +48,18 @@ namespace EFCore.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     AddressId = table.Column<int>(nullable: false),
-                    QuotationId = table.Column<int>(nullable: false)
+                    Email = table.Column<string>(nullable: true),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
+                    Mobile = table.Column<string>(nullable: true),
+                    PrimaryUser = table.Column<bool>(nullable: false),
+                    QuotationId = table.Column<int>(nullable: false),
+                    Relation = table.Column<int>(nullable: false),
+                    SeatToFootrestDimension = table.Column<double>(nullable: false),
+                    SeatToHeadDimension = table.Column<double>(nullable: false),
+                    SpineToKneesDimension = table.Column<double>(nullable: false),
+                    Telephone = table.Column<string>(nullable: true),
+                    Weight = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {

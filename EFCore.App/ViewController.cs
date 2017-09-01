@@ -11,6 +11,8 @@ namespace EFCore.App {
             base.ViewDidLoad();
             // Perform any additional setup after loading the view, typically from a nib.
 
+            Database.DeleteDatabase();
+
             ReloadTableData();
         }
 
@@ -27,9 +29,18 @@ namespace EFCore.App {
             };
 
             using (var context = new DataContext(Database.DatabasePath)) {
-                context.Quotations.Add(quotation);
-                var recordsAdded = context.SaveChanges();
-                System.Console.WriteLine($"Added {recordsAdded} records to the database");
+                try {
+                    context.Quotations.Add(quotation);
+                    var recordsAdded = context.SaveChanges();
+                    System.Console.WriteLine($"Added {recordsAdded} records to the database");
+                } catch (Exception e) {
+                    // Crashes here with JIT exception - https://developer.xamarin.com/guides/ios/advanced_topics/limitations/
+                    // Crash only occurs when enumerators are present in the model (currently exist in the Quotation and the User domain classes)
+                    Console.WriteLine(e);
+                    Console.WriteLine(e.Message);
+                    throw;
+                }
+                
             }
 
             ReloadTableData();

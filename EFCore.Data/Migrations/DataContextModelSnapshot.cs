@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using EFCore;
+using EFCore.Domain;
 
 namespace EFCore.Migrations
 {
@@ -20,7 +21,19 @@ namespace EFCore.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("BuildingName");
+
+                    b.Property<string>("BuildingNumber");
+
+                    b.Property<string>("City");
+
+                    b.Property<string>("Country");
+
+                    b.Property<string>("County");
+
                     b.Property<string>("Postcode");
+
+                    b.Property<string>("Street");
 
                     b.HasKey("Id");
 
@@ -31,6 +44,10 @@ namespace EFCore.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<int>("PropertyType");
+
+                    b.Property<int>("SalesPersonId");
 
                     b.HasKey("Id");
 
@@ -44,7 +61,29 @@ namespace EFCore.Migrations
 
                     b.Property<int>("AddressId");
 
+                    b.Property<string>("Email");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("Mobile");
+
+                    b.Property<bool>("PrimaryUser");
+
                     b.Property<int>("QuotationId");
+
+                    b.Property<int>("Relation");
+
+                    b.Property<double>("SeatToFootrestDimension");
+
+                    b.Property<double>("SeatToHeadDimension");
+
+                    b.Property<double>("SpineToKneesDimension");
+
+                    b.Property<string>("Telephone");
+
+                    b.Property<double>("Weight");
 
                     b.HasKey("Id");
 
