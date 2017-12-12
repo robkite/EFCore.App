@@ -5,7 +5,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>EFCore.App</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.robkite.EFCore</string>
+	<string>com.sturner.EFCore</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
